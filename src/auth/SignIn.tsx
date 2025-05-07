@@ -13,7 +13,7 @@ export default function SignIn() {
       setCurrentTestimonial((prev) => (prev + 1) % 3);
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, []); 
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
