@@ -1,0 +1,342 @@
+/* signup.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    overflow-x: hidden;
+}
+
+/* Main container */
+.hb-signup-page {
+    display: flex;
+    min-height: 100%;
+    width: 100vw;
+}
+  
+/* Left Panel (30% width) */
+.hb-left-panel {
+    width: 30%;
+    min-width: 30%;
+    height: 115vh;
+    background: black;
+    padding: 40px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+}
+  
+/* Right Panel (70% width) */
+.hb-right-panel {
+    width: 70%;
+    min-width: 70%;
+    height: 100vh;
+    background: #f8f9fb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+}
+
+/* Green wave effect in the background */
+.hb-green-waves {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDEwMDAiPjxwYXRoIGZpbGw9IiMwMGMwMDAiIGZpbGwtb3BhY2l0eT0iMC4yIiBkPSJNMCwyMDBjMTUwLDAsNDUwLDQwMCw1MDAsMzUwQzU1MCwzMDAsODUwLDQ1MCwxMDAwLDIwMHY4MDBIMHoiPjwvcGF0aD48cGF0aCBmaWxsPSIjMDBjMDAwIiBmaWxsLW9wYWNpdHk9IjAuMyIgZD0iTTAsNDAwYzE1MCwwLDMwMCwyMDAsNTAwLDMwMEM3MDAsNTAwLDg1MCw3MDAsOTUwLDUwMGMxMDAsLTIwMCwxMDAsLTUwLDE1MCwtMTAwdjYwMEgweiI+PC9wYXRoPjwvc3ZnPg==');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.8;
+    z-index: 0;
+}
+
+.hb-logo {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 1rem;
+}
+
+.hb-logo-icon {
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hb-welcome-text {
+    position: relative;
+    z-index: 2;
+    margin-top: 5rem;
+}
+
+.hb-welcome-text h1 {
+    font-size: 1.7rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.hb-welcome-text p {
+    font-size: .8rem;
+    line-height: 1.5;
+    max-width: 90%;
+    opacity: 0.9;
+}
+
+/* Testimonial Carousel Styles */
+.hb-testimonial-carousel {
+    position: relative;
+    z-index: 2;
+    margin-top: auto;
+    width: 100%;
+    padding-bottom: 2rem;
+}
+
+.hb-testimonials {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.hb-testimonial {
+    background-color: rgba(59, 92, 60, 0.6);
+    border-radius: 12px;
+    padding: 1.5rem;
+    width: 100%;
+    position: absolute;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.hb-testimonial.hb-active {
+    position: relative;
+}
+
+.hb-stars {
+    display: flex;
+    margin-bottom: 0.5rem;
+}
+
+.hb-star {
+    color: white;
+    margin-right: 3px;
+    font-size: 18px;
+}
+
+.hb-testimonial-text {
+    font-size: .8rem;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+}
+
+.hb-user {
+    display: flex;
+    align-items: center;
+}
+
+.hb-user-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ddd;
+    margin-right: 10px;
+    overflow: hidden;
+}
+
+.hb-user-info {
+    font-size: 0.9rem;
+    line-height: 1.2;
+}
+
+.hb-user-info .hb-name {
+    font-weight: bold;
+}
+
+.hb-carousel-indicators {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    position: relative;
+    z-index: 2;
+}
+
+.hb-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin: 0 4px;
+    cursor: pointer;
+}
+
+.hb-indicator.hb-active {
+    background-color: white;
+}
+
+/* Form Styling */
+.hb-sign-up-container {
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    top: 20px;
+}
+
+.hb-form-title {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.hb-account-text {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    color: #555;
+}
+
+.hb-sign-in-link {
+    color: #3a6b45;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.hb-sign-in-link:hover {
+    text-decoration: underline;
+}
+
+.hb-form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 1rem;
+}
+
+.hb-form-group {
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+.hb-w-full {
+    width: 100%;
+}
+
+.hb-form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.hb-form-input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: .8rem;
+    color: #555;
+}
+
+.hb-form-input::placeholder {
+    color: #aaa;
+}
+
+.hb-upload-container {
+    position: relative;
+}
+
+.hb-upload-btn {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    cursor: pointer;
+    color: #aaa;
+}
+
+.hb-upload-icon {
+    color: #555;
+}
+
+.hb-submit-btn {
+    background-color: #3a6b45;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    min-width: 60px;
+    width: 30%;
+}
+
+.hb-submit-btn:hover {
+    background-color: #2a5a35;
+}
+
+.hb-py-3 {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
+
+.hb-mt-4 {
+    margin-top: 1rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .hb-right-panel {
+        padding: 2rem;
+    }
+    
+    .hb-form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+        background-color: #f8f9f8;
+    }
+
+    .hb-left-panel, .hb-right-panel {
+        width: 100%;
+    }
+
+    .hb-left-panel {
+        min-height: 500px;
+    }
+    
+    .hb-left-panel {
+        display: none;
+    }
+    
+    .hb-right-panel {
+        height: 100%;
+        background-color: #f8f9f8;
+    }
+ 
+    .hb-sign-in-container {
+        position: relative;
+        left: 190px;
+    }
+    
+    .hb-sign-up-container {
+        position: relative;
+        top: 10px;
+    }
+}
