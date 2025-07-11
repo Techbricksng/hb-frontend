@@ -10,9 +10,9 @@ import { CookiesProvider } from 'react-cookie';
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Provider store={store}>
-      <BrowserRouter> {/* This is the main router */}
+      <BrowserRouter>
         <CookiesProvider defaultSetOptions={{ path: '/' }}>
-          <App /> {/* App is now inside the router */}
+          <App />
         </CookiesProvider>
       </BrowserRouter>
     </Provider>
