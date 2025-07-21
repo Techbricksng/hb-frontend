@@ -1,7 +1,11 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useState } from "react";
-import MainContent from "../components/Hero";
+import MainContent from "../components/HomePage";
+import PropertyGuide from "../components/PropertyGuide";
+import TopOffers from "../components/TopOffers";
+import FAQ from "../components/FAQ";
+import ContactSection from "../components/ContactSection";
 
 export default function HomePage() {
   const [mode] = useState<string>("light");
@@ -12,6 +16,10 @@ export default function HomePage() {
     >
       <Header />
       <MainContent />
+      <TopOffers />
+      <PropertyGuide />
+      <FAQ />
+      <ContactSection  />
       <Footer />
     </div>
   );
