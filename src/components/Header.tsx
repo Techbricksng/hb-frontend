@@ -1,5 +1,6 @@
+import { NavLink } from 'react-router-dom';
 import logo from '../assets/logo.png';
-
+import profile from '../assets/profile.png';
 
 const Header = () => {
   return (
@@ -11,46 +12,73 @@ const Header = () => {
 
           {/* Navigation */}
           <nav className="hidden md:flex space-x-8">
-            <a 
-              href="#" 
-              className="text-slate-900 hover:text-slate-700 px-3 py-2 text-sm font-medium border-b-2 border-slate-900"
+            <NavLink 
+              to="/" 
+              end
+              className={({ isActive }) => 
+                `px-3 py-2 text-sm font-medium transition-colors ${
+                  isActive 
+                    ? 'text-slate-900 border-b-2 border-slate-900' 
+                    : 'text-slate-500 hover:text-slate-700'
+                }`
+              }
             >
               Home
-            </a>
-            <a 
-              href="#" 
-              className="text-slate-500 hover:text-slate-700 px-3 py-2 text-sm font-medium transition-colors"
+            </NavLink>
+            <NavLink 
+              to="/explore" 
+              className={({ isActive }) => 
+                `px-3 py-2 text-sm font-medium transition-colors ${
+                  isActive 
+                    ? 'text-slate-900 border-b-2 border-slate-900' 
+                    : 'text-slate-500 hover:text-slate-700'
+                }`
+              }
             >
               Explore
-            </a>
-            <a 
-              href="#" 
-              className="text-slate-500 hover:text-slate-700 px-3 py-2 text-sm font-medium transition-colors"
+            </NavLink>
+            <NavLink 
+              to="/investment" 
+              className={({ isActive }) => 
+                `px-3 py-2 text-sm font-medium transition-colors ${
+                  isActive 
+                    ? 'text-slate-900 border-b-2 border-slate-900' 
+                    : 'text-slate-500 hover:text-slate-700'
+                }`
+              }
             >
               Investment
-            </a>
-            <a 
-              href="#" 
-              className="text-slate-500 hover:text-slate-700 px-3 py-2 text-sm font-medium transition-colors"
+            </NavLink>
+            <NavLink 
+              to="/help-center" 
+              className={({ isActive }) => 
+                `px-3 py-2 text-sm font-medium transition-colors ${
+                  isActive 
+                    ? 'text-slate-900 border-b-2 border-slate-900' 
+                    : 'text-slate-500 hover:text-slate-700'
+                }`
+              }
             >
               Help Center
-            </a>
-            <a 
-              href="#" 
-              className="text-slate-500 hover:text-slate-700 px-3 py-2 text-sm font-medium transition-colors"
+            </NavLink>
+            <NavLink 
+              to="/blogs" 
+              className={({ isActive }) => 
+                `px-3 py-2 text-sm font-medium transition-colors ${
+                  isActive 
+                    ? 'text-slate-900 border-b-2 border-slate-900' 
+                    : 'text-slate-500 hover:text-slate-700'
+                }`
+              }
             >
               Blogs
-            </a>
+            </NavLink>
           </nav>
 
           {/* Right side buttons */}
           <div className="flex items-center space-x-4">
             {/* Profile/Login Icon */}
-            <button className="p-2 text-slate-500 hover:text-slate-700 transition-colors">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-              </svg>
-            </button>
+            <img src={profile} alt="Profile" className="h-8 w-8 rounded-full cursor-pointer" />
             
             {/* Get Started Button */}
             <button
@@ -59,7 +87,7 @@ const Header = () => {
               onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#4F6C51'}
               onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#3A4B3C'}
             >
-            <span>Get Started</span>
+              <span>Get Started</span>
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>

@@ -7,6 +7,10 @@ import teamOne from '../assets/1.png';
 import teamTwo from '../assets/2.png';
 import teamThree from '../assets/3.png';
 import teamFour from '../assets/4.png';
+import companyOne from '../assets/company1.png';
+import companyTwo from '../assets/company2.png';
+import companyThree from '../assets/company3.png';
+import companyFour from '../assets/company4.png';
 
 const MainContent = () => {
   const [location, setLocation] = useState('');
@@ -151,27 +155,13 @@ const MainContent = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
             {/* Partner 1 - Check D'Deck Homes */}
             <div className="flex flex-col items-center space-y-2">
-              <div className="w-16 h-16 bg-blue-600 rounded-lg flex items-center justify-center">
-                <div className="text-white font-bold text-lg">
-                  <div className="flex flex-col items-center">
-                    <div className="flex space-x-1">
-                      <div className="w-2 h-6 bg-white rounded-sm"></div>
-                      <div className="w-2 h-8 bg-white rounded-sm"></div>
-                      <div className="w-2 h-4 bg-white rounded-sm"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="text-center">
-                <div className="text-xs font-bold text-blue-600">CHECK D'DECK HOMES</div>
-              </div>
+              <img src={companyOne} alt="Check D'Deck Homes" className="w-26 h-26 mb-2" />
             </div>
 
             {/* Partner 2 - Lane*Wey */}
             <div className="flex flex-col items-center space-y-2">
               <div className="text-center">
-                <div className="text-2xl font-bold text-orange-500">Lane*Wey</div>
-                <div className="text-xs text-gray-600">Investment LTD</div>
+                <img src={companyTwo} alt="Lane*Wey" className="w-26 h-26 mb-2" />
               </div>
             </div>
 
@@ -179,12 +169,9 @@ const MainContent = () => {
             <div className="flex flex-col items-center space-y-2">
               <div className="text-center">
                 <div className="flex items-center space-x-2">
-                  <div className="w-8 h-8 bg-blue-600 rounded-sm flex items-center justify-center">
-                    <div className="w-4 h-4 bg-white rounded-sm"></div>
-                  </div>
+                  <img src={companyThree} alt="Telos Properties" className="w-16 h-11 mb-2" />
                   <div>
-                    <div className="text-xl font-bold text-blue-600">TELOS</div>
-                    <div className="text-sm text-blue-400">PROPERTIES</div>
+                   
                   </div>
                 </div>
               </div>
@@ -192,12 +179,9 @@ const MainContent = () => {
 
             {/* Partner 4 - Golden Partner */}
             <div className="flex flex-col items-center space-y-2">
-              <div className="w-16 h-16 flex items-center justify-center">
-                <div className="relative">
-                  <div className="w-0 h-0 border-l-8 border-r-8 border-b-12 border-l-transparent border-r-transparent border-b-yellow-500"></div>
-                  <div className="absolute top-3 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-yellow-300 rounded-full"></div>
-                </div>
-              </div>
+             
+              <img src={companyFour} alt="Golden Partner" className="w-full h-full object-cover rounded-full" />
+              
             </div>
           </div>
         </div>
