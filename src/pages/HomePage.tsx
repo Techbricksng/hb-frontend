@@ -6,6 +6,7 @@ import PropertyGuide from "../components/PropertyGuide";
 import TopOffers from "../components/TopOffers";
 import FAQ from "../components/FAQ";
 import ContactSection from "../components/ContactSection";
+import BlogSection from "../components/BlogSection";
 
 export default function HomePage() {
   const [mode] = useState<string>("light");
@@ -20,6 +21,7 @@ export default function HomePage() {
       <PropertyGuide />
       <FAQ />
       <ContactSection  />
+      <BlogSection />	
       <Footer />
     </div>
   );

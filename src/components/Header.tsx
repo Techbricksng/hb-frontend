@@ -1,3 +1,5 @@
+import logo from '../assets/logo.png';
+
 
 const Header = () => {
   return (
@@ -5,18 +7,7 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center">
-            <div className="flex-shrink-0">
-              <div className="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center">
-                <div className="text-white text-lg font-bold transform -rotate-12">
-                  <div className="w-6 h-6 border-2 border-white rounded-sm relative">
-                    <div className="absolute top-1 left-1 w-2 h-2 bg-white rounded-full"></div>
-                    <div className="absolute bottom-0 right-0 w-3 h-1 bg-white rounded-sm"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <img src={logo} alt="HouseBank Logo" className="h-9 w-10" />
 
           {/* Navigation */}
           <nav className="hidden md:flex space-x-8">
