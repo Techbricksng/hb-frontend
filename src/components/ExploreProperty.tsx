@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { MapPin, Bed, Bath, Square, Heart, Search, ChevronDown } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-// Property images
+// You'll need to add these property images to your assets folder
 import property1 from '../assets/explore/explore-property-1.png';
 import property2 from '../assets/explore/explore-property-2.png';
 import property3 from '../assets/explore/explore-property-3.png';
@@ -12,7 +13,6 @@ import property7 from '../assets/explore/explore-property-7.png';
 import property8 from '../assets/explore/explore-property-8.png';
 
 const ExploreProperty = () => {
-  // State management
   const [activeCategory, setActiveCategory] = useState('All Property');
   const [searchFilters, setSearchFilters] = useState({
     location: '',
@@ -21,7 +21,6 @@ const ExploreProperty = () => {
   });
   const [favorites, setFavorites] = useState<number[]>([]);
 
-  // Navigation categories
   const categories = [
     'All Property',
     'Buy',
@@ -31,13 +30,11 @@ const ExploreProperty = () => {
     'List Property'
   ];
 
-  // Property data with types
   const propertyData = [
     {
       id: 1,
       image: property1,
       type: 'For Sale',
-      category: 'Buy',
       title: 'Rendez House Bay',
       rating: 4.6,
       location: 'Lagos, Nigeria',
@@ -51,7 +48,6 @@ const ExploreProperty = () => {
       id: 2,
       image: property2,
       type: 'For Sale',
-      category: 'Buy',
       title: 'Rendez House Bay',
       rating: 4.6,
       location: 'Lagos, Nigeria',
@@ -65,7 +61,6 @@ const ExploreProperty = () => {
       id: 3,
       image: property3,
       type: 'For Sale',
-      category: 'Buy',
       title: 'Rendez House Bay',
       rating: 4.6,
       location: 'Lagos, Nigeria',
@@ -79,7 +74,6 @@ const ExploreProperty = () => {
       id: 4,
       image: property4,
       type: 'For Sale',
-      category: 'Buy',
       title: 'Rendez House Bay',
       rating: 4.6,
       location: 'Lagos, Nigeria',
@@ -93,7 +87,6 @@ const ExploreProperty = () => {
       id: 5,
       image: property5,
       type: 'Rent Now',
-      category: 'Rent',
       title: 'Rendez House Bay',
       rating: 4.6,
       location: 'Lagos, Nigeria',
@@ -107,7 +100,6 @@ const ExploreProperty = () => {
       id: 6,
       image: property6,
       type: 'Rent Now',
-      category: 'Rent',
       title: 'Rendez House Bay',
       rating: 4.6,
       location: 'Lagos, Nigeria',
@@ -121,7 +113,6 @@ const ExploreProperty = () => {
       id: 7,
       image: property7,
       type: 'Rent Now',
-      category: 'Rent',
       title: 'Rendez House Bay',
       rating: 4.6,
       location: 'Lagos, Nigeria',
@@ -135,7 +126,6 @@ const ExploreProperty = () => {
       id: 8,
       image: property8,
       type: 'Rent Now',
-      category: 'Rent',
       title: 'Rendez House Bay',
       rating: 4.6,
       location: 'Lagos, Nigeria',
@@ -147,13 +137,6 @@ const ExploreProperty = () => {
     }
   ];
 
-  // Filter properties based on active category
-  const filteredProperties = propertyData.filter(property => {
-    if (activeCategory === 'All Property') return true;
-    return property.category === activeCategory;
-  });
-
-  // Toggle favorite status for a property
   const toggleFavorite = (propertyId: number) => {
     setFavorites(prev => 
       prev.includes(propertyId) 
@@ -162,7 +145,6 @@ const ExploreProperty = () => {
     );
   };
 
-  // Property card component
   const PropertyCard = ({ property }: { property: typeof propertyData[0] }) => {
     const isFavorite = favorites.includes(property.id);
 
@@ -202,7 +184,11 @@ const ExploreProperty = () => {
         <div className="p-4 space-y-3">
           {/* Title and Rating */}
           <div className="flex items-start justify-between">
-            <h3 className="text-lg font-semibold text-gray-900">{property.title}</h3>
+          <Link to="/property-details">
+            <h3 className="text-lg font-semibold text-gray-900 hover:text-green-700 transition-colors">
+                {property.title}
+            </h3>
+            </Link>
             <div className="flex items-center space-x-1">
               <svg className="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
@@ -253,11 +239,11 @@ const ExploreProperty = () => {
   };
 
   return (
-    <div className="bg-gray-50 min-h-screen py-8">
+    <div className="bg-gray-50 min-h-screen py-2">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
-        <div className="flex items-center justify-between mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Explore Property</h1>
+        <div className="flex items-center justify-between mb-8 relative top-19">
+          <h1 className="text-2xl font-bold text-gray-900">Explore Property</h1>
           <button className="flex items-center space-x-2 px-4 py-2 text-gray-600 bg-gray-200 rounded-lg hover:bg-gray-300 transition-colors">
             <span className="text-sm font-medium">See More</span>
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -310,12 +296,12 @@ const ExploreProperty = () => {
                 placeholder="Price Range"
                 value={searchFilters.priceRange}
                 onChange={(e) => setSearchFilters(prev => ({...prev, priceRange: e.target.value}))}
-                className="text-sm text-gray-600 bg-transparent outline-none flex-1"
+                className="w-full text-sm text-gray-600 bg-transparent outline-none flex-1"
               />
             </div>
 
             {/* Search Button */}
-            <button className="bg-green-600 hover:bg-green-700 text-white p-3 rounded-full transition-colors">
+            <button className="relative right-1 bg-green-600 hover:bg-green-700 text-white p-2 rounded-full transition-colors">
               <Search className="w-4 h-4" />
             </button>
           </div>
@@ -340,9 +326,9 @@ const ExploreProperty = () => {
           </div>
         </div>
 
-        {/* Property Grid - Now using filteredProperties */}
+        {/* Property Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {filteredProperties.map((property) => (
+          {propertyData.map((property) => (
             <PropertyCard key={property.id} property={property} />
           ))}
         </div>

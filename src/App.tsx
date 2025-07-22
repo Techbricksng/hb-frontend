@@ -11,7 +11,8 @@ import { AuthLayout, Layout } from './components/Layout.tsx';
 import NotFound from './components/404.tsx';
 import HomePage from './pages/HomePage.tsx';
 import ExplorePage from './pages/ExplorePage.tsx';
-
+import ExplorePages from './pages/ExplorePages.tsx';
+import PropertyDetail from './pages/PropertyDetails.tsx';
 const App = () => {
   return (
     <AuthProvider>
@@ -32,6 +33,8 @@ const App = () => {
           </Route>
           <Route path="/" element={<HomePage />} />
           <Route path="/explore" element={<ExplorePage />} />
+          <Route path="/explores" element={<ExplorePages />} />
+          <Route path="/property-details" element={<PropertyDetail />} />
           {/* <Route path="/investment" element={<InvestmentPage />} />
           <Route path="/help-center" element={<HelpCenterPage />} />
           <Route path="/blogs" element={<BlogsPage />} />  */}
