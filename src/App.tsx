@@ -10,6 +10,7 @@ import { AuthProvider } from './context/AuthContext.tsx';
 import { AuthLayout, Layout } from './components/Layout.tsx';
 import NotFound from './components/404.tsx';
 import HomePage from './pages/HomePage.tsx';
+import ExplorePage from './pages/ExplorePage.tsx';
 
 const App = () => {
   return (
@@ -29,6 +30,11 @@ const App = () => {
           <Route element={<Layout />}>
             <Route path="/landing" element={<HomePage />} />
           </Route>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/explore" element={<ExplorePage />} />
+          {/* <Route path="/investment" element={<InvestmentPage />} />
+          <Route path="/help-center" element={<HelpCenterPage />} />
+          <Route path="/blogs" element={<BlogsPage />} />  */}
         </Routes>
       </ErrorBoundary>
     </AuthProvider>
