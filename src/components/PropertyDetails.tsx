@@ -103,10 +103,19 @@ const PropertyDetail = () => {
         <div className="flex items-center justify-between mb-6">
           <h1 className="text-2xl font-bold text-gray-900">Zukariya property</h1>
           <div className="flex items-center space-x-4">
-            <button className="flex items-center space-x-2 text-gray-600 hover:text-gray-900">
-              <Share className="w-4 h-4" />
-              <span className="text-sm">Share</span>
-            </button>
+          <button
+                onClick={() => {
+                    const shareURL = window.location.href;
+                    navigator.clipboard.writeText(shareURL)
+                    .then(() => alert('Link copied to clipboard!'))
+                    .catch(() => alert('Failed to copy link.'));
+                }}
+                className="flex items-center space-x-2 text-gray-600 hover:text-gray-900"
+                >
+                <Share className="w-4 h-4" />
+                <span className="text-sm">Share</span>
+         </button>
+
             <button 
               onClick={() => setIsSaved(!isSaved)}
               className="flex items-center space-x-2 text-gray-600 hover:text-gray-900"
