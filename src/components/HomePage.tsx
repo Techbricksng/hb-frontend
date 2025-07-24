@@ -11,28 +11,15 @@ import companyOne from '../assets/company1.png';
 import companyTwo from '../assets/company2.png';
 import companyThree from '../assets/company3.png';
 import companyFour from '../assets/company4.png';
+import { MapPin, Bed, Bath, Square, Heart, Search, ChevronDown } from 'lucide-react';
 
 const MainContent = () => {
-  const [location, setLocation] = useState('');
-  const [propertyType, setPropertyType] = useState('');
-  const [priceRange, setPriceRange] = useState('');
-
-  const propertyTypes = [
-    'Apartment',
-    'House',
-    'Villa',
-    'Condo',
-    'Townhouse',
-    'Land'
-  ];
-
-  const priceRanges = [
-    'Any Price',
-    '$0 - $500,000',
-    '$500,000 - $1,000,000',
-    '$1,000,000 - $2,000,000',
-    '$2,000,000+'
-  ];
+  // State to manage search filters
+  const [searchFilters, setSearchFilters] = useState({
+    location: '',
+    propertyType: '',
+    priceRange: ''
+  });
 
   return (
     <div className="bg-white">
@@ -63,74 +50,59 @@ const MainContent = () => {
             </button>
 
             {/* Search Filters */}
-            <div className="flex flex-wrap items-center gap-4 pt-8">
-              {/* Location - Input Field */}
-              <div className="relative flex items-center bg-white border border-gray-300 rounded-lg px-4 py-3 min-w-[140px]">
-                <svg className="w-5 h-5 text-gray-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-                <input
-                  type="text"
-                  placeholder="Location"
-                  value={location}
-                  onChange={(e) => setLocation(e.target.value)}
-                  className="text-gray-700 text-sm bg-transparent outline-none w-20"
-                />
-              </div>
+            <div className="bg-white rounded-lg md:rounded-full p-2 shadow-sm mb-8 w-full md:max-w-2xl mx-auto">
+              <div className="flex flex-col md:flex-row md:items-center space-y-2 md:space-y-0 md:space-x-4">
+                {/* Location Filter */}
+                <div className="flex items-center space-x-2 px-4 py-2 w-full md:flex-1 bg-gray-50 md:bg-transparent rounded-lg md:rounded-none">
+                  <MapPin className="w-4 h-4 text-gray-400" />
+                  <input
+                    type="text"
+                    placeholder="Enter Location"
+                    value={searchFilters.location}
+                    onChange={(e) => setSearchFilters(prev => ({...prev, location: e.target.value}))}
+                    className="text-sm text-gray-600 bg-transparent outline-none w-full"
+                  />
+                </div>
 
-              {/* Property Type - Dropdown */}
-              <div className="relative flex items-center bg-white border border-gray-300 rounded-lg px-4 py-3 min-w-[140px]">
-                <svg className="w-5 h-5 text-gray-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                </svg>
-                <select
-                  value={propertyType}
-                  onChange={(e) => setPropertyType(e.target.value)}
-                  className="text-gray-700 text-sm bg-transparent outline-none appearance-none w-20"
-                >
-                  <option value="">Property type</option>
-                  {propertyTypes.map((type) => (
-                    <option key={type} value={type}>
-                      {type}
-                    </option>
-                  ))}
-                </select>
-                <svg className="w-4 h-4 text-gray-400 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </div>
+                <div className="md:w-px md:h-6 md:bg-gray-200"></div>
 
-              {/* Price Range - Dropdown */}
-              <div className="relative flex items-center bg-white border border-gray-300 rounded-lg px-4 py-3 min-w-[140px]">
-                <svg className="w-5 h-5 text-gray-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
-                </svg>
-                <select
-                  value={priceRange}
-                  onChange={(e) => setPriceRange(e.target.value)}
-                  className="text-gray-700 text-sm bg-transparent outline-none appearance-none w-20"
-                >
-                  <option value="">Price Range</option>
-                  {priceRanges.map((range) => (
-                    <option key={range} value={range}>
-                      {range}
-                    </option>
-                  ))}
-                </select>
-              </div>
+                {/* Property Type Filter */}
+                <div className="flex items-center space-x-2 px-4 py-2 w-full md:flex-1 bg-gray-50 md:bg-transparent rounded-lg md:rounded-none">
+                  <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                  <input
+                    type="text"
+                    placeholder="Enter Property type"
+                    value={searchFilters.propertyType}
+                    onChange={(e) => setSearchFilters(prev => ({...prev, propertyType: e.target.value}))}
+                    className="text-sm text-gray-600 bg-transparent outline-none w-full"
+                  />
+                  <ChevronDown className="w-4 h-4 text-gray-400" />
+                </div>
 
-              {/* Search Button */}
-              <button 
-                className="bg-green-700 hover:bg-green-800 text-white p-3 rounded-lg transition-colors"
-                onClick={() => {
-                  console.log({ location, propertyType, priceRange });
-                }}
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-              </button>
+                <div className="md:w-px md:h-6 md:bg-gray-200"></div>
+
+                {/* Price Range Filter */}
+                <div className="flex items-center space-x-2 px-4 py-2 w-full md:flex-1 bg-gray-50 md:bg-transparent rounded-lg md:rounded-none">
+                  <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+                  </svg>
+                  <input
+                    type="text"
+                    placeholder="Price Range"
+                    value={searchFilters.priceRange}
+                    onChange={(e) => setSearchFilters(prev => ({...prev, priceRange: e.target.value}))}
+                    className="text-sm text-gray-600 bg-transparent outline-none w-full"
+                  />
+                </div>
+
+                {/* Search Button */}
+                <button className="w-full md:w-auto bg-green-600 hover:bg-green-700 text-white p-2 rounded-lg md:rounded-full transition-colors flex items-center justify-center md:relative md:right-1">
+                  <Search className="w-4 h-4" />
+                  <span className="ml-2 md:hidden">Search</span>
+                </button>
+              </div>
             </div>
           </div>
 
