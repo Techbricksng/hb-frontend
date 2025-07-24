@@ -4,6 +4,9 @@ import { useState } from "react";
 import BecomeRealtor from "../components/RealtorSlide";
 import WhyJoinUs from "../components/RealtorWhyJoin";
 import FeaturesSection from "../components/RealtorFeaturesSection";
+import BenefitsSection from "../components/RealtorBenefitsSection";
+import WhyChooseUsPage from "../components/RealtorWhyChooseUs";
+import BlogSection from "../components/BlogSection";
 
 
 export default function RealtorLanding() {
@@ -17,6 +20,9 @@ export default function RealtorLanding() {
       <BecomeRealtor />
       <WhyJoinUs />
       <FeaturesSection />
+      <BenefitsSection />
+      <WhyChooseUsPage />
+      <BlogSection />
       <Footer />
     </div>
   );

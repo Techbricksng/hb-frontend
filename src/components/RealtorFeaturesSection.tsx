@@ -1,6 +1,7 @@
-import React from 'react';
-import { Users, ArrowRight } from 'lucide-react';
+
+import { Users } from 'lucide-react';
 import icons from '../assets/realtor/icons.png';
+import arrowTop from '../assets/arrow-top.png';
 
 const FeaturesSection = () => {
   const features = [
@@ -89,7 +90,11 @@ const FeaturesSection = () => {
           </h3>
           <button className="inline-flex items-center space-x-2 bg-green-600 hover:bg-green-700 text-white font-medium py-4 px-8 rounded-lg transition-colors">
             <span>Start listing</span>
-            <ArrowRight className="w-5 h-5" />
+            <img 
+                src={arrowTop}
+                alt="arrow icon" 
+                className="w-5 h-5"
+              />
           </button>
         </div>
       </div>
