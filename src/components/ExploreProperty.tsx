@@ -240,72 +240,73 @@ const ExploreProperty = () => {
 
   return (
     <div className="bg-gray-50 min-h-screen py-2">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header Section */}
-        <div className="flex items-center justify-between mb-8 relative top-19">
-          <h1 className="text-2xl font-bold text-gray-900">Explore Property</h1>
-          <button className="flex items-center space-x-2 px-4 py-2 text-gray-600 bg-gray-200 rounded-lg hover:bg-gray-300 transition-colors">
-            <span className="text-sm font-medium">See More</span>
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-        </div>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Header Section - Modified for mobile */}
+      <div className="flex items-center justify-between mb-8 md:relative md:top-19">
+        <h1 className="text-2xl font-bold text-gray-900">Explore Property</h1>
+        <button className="flex items-center space-x-2 px-4 py-2 text-gray-600 bg-gray-200 rounded-lg hover:bg-gray-300 transition-colors">
+          <span className="text-sm font-medium">See More</span>
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
 
-        {/* Search Filters */}
-        <div className="bg-white rounded-full p-2 shadow-sm mb-8 max-w-2xl mx-auto">
-          <div className="flex items-center space-x-4">
-            {/* Location Filter */}
-            <div className="flex items-center space-x-2 px-4 py-2 flex-1">
-              <MapPin className="w-4 h-4 text-gray-400" />
-              <input
-                type="text"
-                placeholder="Enter Location"
-                value={searchFilters.location}
-                onChange={(e) => setSearchFilters(prev => ({...prev, location: e.target.value}))}
-                className="text-sm text-gray-600 bg-transparent outline-none flex-1"
-              />
-            </div>
+    {/* Search Filters */}
+<div className="bg-white rounded-lg md:rounded-full p-2 shadow-sm mb-8 w-full md:max-w-2xl mx-auto">
+  <div className="flex flex-col md:flex-row md:items-center space-y-2 md:space-y-0 md:space-x-4">
+    {/* Location Filter */}
+    <div className="flex items-center space-x-2 px-4 py-2 w-full md:flex-1 bg-gray-50 md:bg-transparent rounded-lg md:rounded-none">
+      <MapPin className="w-4 h-4 text-gray-400" />
+      <input
+        type="text"
+        placeholder="Enter Location"
+        value={searchFilters.location}
+        onChange={(e) => setSearchFilters(prev => ({...prev, location: e.target.value}))}
+        className="text-sm text-gray-600 bg-transparent outline-none w-full"
+      />
+    </div>
 
-            <div className="w-px h-6 bg-gray-200"></div>
+    <div className="md:w-px md:h-6 md:bg-gray-200"></div>
 
-            {/* Property Type Filter */}
-            <div className="flex items-center space-x-2 px-4 py-2 flex-1">
-              <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-              </svg>
-              <input
-                type="text"
-                placeholder="Enter Property type"
-                value={searchFilters.propertyType}
-                onChange={(e) => setSearchFilters(prev => ({...prev, propertyType: e.target.value}))}
-                className="text-sm text-gray-600 bg-transparent outline-none flex-1"
-              />
-              <ChevronDown className="w-4 h-4 text-gray-400" />
-            </div>
+    {/* Property Type Filter */}
+    <div className="flex items-center space-x-2 px-4 py-2 w-full md:flex-1 bg-gray-50 md:bg-transparent rounded-lg md:rounded-none">
+      <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+      </svg>
+      <input
+        type="text"
+        placeholder="Enter Property type"
+        value={searchFilters.propertyType}
+        onChange={(e) => setSearchFilters(prev => ({...prev, propertyType: e.target.value}))}
+        className="text-sm text-gray-600 bg-transparent outline-none w-full"
+      />
+      <ChevronDown className="w-4 h-4 text-gray-400" />
+    </div>
 
-            <div className="w-px h-6 bg-gray-200"></div>
+    <div className="md:w-px md:h-6 md:bg-gray-200"></div>
 
-            {/* Price Range Filter */}
-            <div className="flex items-center space-x-2 px-4 py-2 flex-1">
-              <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
-              </svg>
-              <input
-                type="text"
-                placeholder="Price Range"
-                value={searchFilters.priceRange}
-                onChange={(e) => setSearchFilters(prev => ({...prev, priceRange: e.target.value}))}
-                className="w-full text-sm text-gray-600 bg-transparent outline-none flex-1"
-              />
-            </div>
+    {/* Price Range Filter */}
+    <div className="flex items-center space-x-2 px-4 py-2 w-full md:flex-1 bg-gray-50 md:bg-transparent rounded-lg md:rounded-none">
+      <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+      </svg>
+      <input
+        type="text"
+        placeholder="Price Range"
+        value={searchFilters.priceRange}
+        onChange={(e) => setSearchFilters(prev => ({...prev, priceRange: e.target.value}))}
+        className="text-sm text-gray-600 bg-transparent outline-none w-full"
+      />
+    </div>
 
-            {/* Search Button */}
-            <button className="relative right-1 bg-green-600 hover:bg-green-700 text-white p-2 rounded-full transition-colors">
-              <Search className="w-4 h-4" />
-            </button>
-          </div>
-        </div>
+    {/* Search Button - Full width on mobile, normal on desktop */}
+    <button className="w-full md:w-auto bg-green-600 hover:bg-green-700 text-white p-2 rounded-lg md:rounded-full transition-colors flex items-center justify-center md:relative md:right-1">
+      <Search className="w-4 h-4" />
+      <span className="ml-2 md:hidden">Search</span>
+    </button>
+  </div>
+</div>
 
         {/* Category Tabs */}
         <div className="mb-8">
