@@ -1,7 +1,7 @@
 
 import { ArrowRight, Star } from 'lucide-react';
 
-// You'll need to add this image to your assets folder
+
 import handshakeImage from '../assets/about/handshake-meeting.png';
 import close from '../assets/close.png';
 import star from '../assets/about/star.png';
