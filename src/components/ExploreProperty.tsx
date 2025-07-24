@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { MapPin, Bed, Bath, Square, Heart, Search, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-// You'll need to add these property images to your assets folder
+// Property images
 import property1 from '../assets/explore/explore-property-1.png';
 import property2 from '../assets/explore/explore-property-2.png';
 import property3 from '../assets/explore/explore-property-3.png';
@@ -35,107 +35,135 @@ const ExploreProperty = () => {
       id: 1,
       image: property1,
       type: 'For Sale',
-      title: 'Rendez House Bay',
-      rating: 4.6,
-      location: 'Lagos, Nigeria',
-      bedrooms: 3,
-      bathrooms: 3,
-      area: 3,
-      description: 'A beautiful house that resonates the beauty of lagos, affordable and friendly environment',
-      price: 'N250,000'
+      category: 'Buy',
+      title: 'Luxury Villa in Banana Island',
+      rating: 4.8,
+      location: 'Banana Island, Lagos',
+      bedrooms: 5,
+      bathrooms: 4,
+      area: 3500,
+      description: 'Exclusive luxury villa with modern amenities and waterfront view',
+      price: 'N850,000,000'
     },
     {
       id: 2,
       image: property2,
       type: 'For Sale',
-      title: 'Rendez House Bay',
+      category: 'Buy',
+      title: 'Modern Apartment in Ikoyi',
       rating: 4.6,
-      location: 'Lagos, Nigeria',
+      location: 'Ikoyi, Lagos',
       bedrooms: 3,
-      bathrooms: 3,
-      area: 3,
-      description: 'A beautiful house that resonates the beauty of lagos, affordable and friendly environment',
-      price: 'N250,000'
+      bathrooms: 2,
+      area: 1800,
+      description: 'Spacious apartment in a secure estate with 24/7 power and amenities',
+      price: 'N320,000,000'
     },
     {
       id: 3,
       image: property3,
       type: 'For Sale',
-      title: 'Rendez House Bay',
-      rating: 4.6,
-      location: 'Lagos, Nigeria',
-      bedrooms: 3,
+      category: 'Buy',
+      title: 'Duplex in Lekki Phase 1',
+      rating: 4.5,
+      location: 'Lekki Phase 1, Lagos',
+      bedrooms: 4,
       bathrooms: 3,
-      area: 3,
-      description: 'A beautiful house that resonates the beauty of lagos, affordable and friendly environment',
-      price: 'N250,000'
+      area: 2500,
+      description: 'Beautiful duplex with ample parking space and garden area',
+      price: 'N420,000,000'
     },
     {
       id: 4,
       image: property4,
       type: 'For Sale',
-      title: 'Rendez House Bay',
-      rating: 4.6,
-      location: 'Lagos, Nigeria',
-      bedrooms: 3,
-      bathrooms: 3,
-      area: 3,
-      description: 'A beautiful house that resonates the beauty of lagos, affordable and friendly environment',
-      price: 'N250,000'
+      category: 'Land',
+      title: 'Vacant Land in Epe',
+      rating: 4.2,
+      location: 'Epe, Lagos',
+      bedrooms: 0,
+      bathrooms: 0,
+      area: 10000,
+      description: 'Prime land suitable for commercial or residential development',
+      price: 'N150,000,000'
     },
     {
       id: 5,
       image: property5,
       type: 'Rent Now',
-      title: 'Rendez House Bay',
-      rating: 4.6,
-      location: 'Lagos, Nigeria',
+      category: 'Rent',
+      title: '3-Bedroom Apartment in Victoria Island',
+      rating: 4.7,
+      location: 'Victoria Island, Lagos',
       bedrooms: 3,
-      bathrooms: 3,
-      area: 3,
-      description: 'A beautiful house that resonates the beauty of lagos, affordable and friendly environment',
-      price: 'N250,000'
+      bathrooms: 2,
+      area: 2000,
+      description: 'Fully furnished apartment with concierge service and swimming pool',
+      price: 'N8,500,000/yr'
     },
     {
       id: 6,
       image: property6,
       type: 'Rent Now',
-      title: 'Rendez House Bay',
-      rating: 4.6,
-      location: 'Lagos, Nigeria',
-      bedrooms: 3,
-      bathrooms: 3,
-      area: 3,
-      description: 'A beautiful house that resonates the beauty of lagos, affordable and friendly environment',
-      price: 'N250,000'
+      category: 'Rent',
+      title: 'Office Space in CBD',
+      rating: 4.4,
+      location: 'Central Business District, Abuja',
+      bedrooms: 0,
+      bathrooms: 2,
+      area: 1500,
+      description: 'Premium office space with high-speed internet and meeting rooms',
+      price: 'N6,000,000/yr'
     },
     {
       id: 7,
       image: property7,
       type: 'Rent Now',
-      title: 'Rendez House Bay',
-      rating: 4.6,
-      location: 'Lagos, Nigeria',
-      bedrooms: 3,
-      bathrooms: 3,
-      area: 3,
-      description: 'A beautiful house that resonates the beauty of lagos, affordable and friendly environment',
-      price: 'N250,000'
+      category: 'Rent',
+      title: 'Studio Apartment in Yaba',
+      rating: 4.3,
+      location: 'Yaba, Lagos',
+      bedrooms: 1,
+      bathrooms: 1,
+      area: 600,
+      description: 'Cozy studio perfect for young professionals, close to tech hubs',
+      price: 'N1,200,000/yr'
     },
     {
       id: 8,
       image: property8,
       type: 'Rent Now',
-      title: 'Rendez House Bay',
+      category: 'Invest',
+      title: 'Commercial Property in Ikeja',
       rating: 4.6,
-      location: 'Lagos, Nigeria',
-      bedrooms: 3,
+      location: 'Ikeja, Lagos',
+      bedrooms: 0,
       bathrooms: 3,
-      area: 3,
-      description: 'A beautiful house that resonates the beauty of lagos, affordable and friendly environment',
-      price: 'N250,000'
+      area: 5000,
+      description: 'Strategic commercial property with high ROI potential',
+      price: 'N12,000,000/yr'
     }
   ];
+
+  // Filter properties based on active category
+  const filteredProperties = propertyData.filter(property => {
+    switch (activeCategory) {
+      case 'All Property':
+        return true;
+      case 'Buy':
+        return property.type === 'For Sale';
+      case 'Rent':
+        return property.type === 'Rent Now';
+      case 'Land':
+        return property.category === 'Land';
+      case 'Invest':
+        return property.category === 'Invest';
+      case 'List Property':
+        return true; // This could be filtered differently if needed
+      default:
+        return true;
+    }
+  });
 
   const toggleFavorite = (propertyId: number) => {
     setFavorites(prev => 
@@ -184,10 +212,10 @@ const ExploreProperty = () => {
         <div className="p-4 space-y-3">
           {/* Title and Rating */}
           <div className="flex items-start justify-between">
-          <Link to="/property-details">
-            <h3 className="text-lg font-semibold text-gray-900 hover:text-green-700 transition-colors">
+            <Link to="/property-details">
+              <h3 className="text-lg font-semibold text-gray-900 hover:text-green-700 transition-colors">
                 {property.title}
-            </h3>
+              </h3>
             </Link>
             <div className="flex items-center space-x-1">
               <svg className="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
@@ -215,12 +243,12 @@ const ExploreProperty = () => {
             </div>
             <div className="flex items-center space-x-1">
               <Square className="w-4 h-4" />
-              <span className="text-sm">{property.area}</span>
+              <span className="text-sm">{property.area} sqft</span>
             </div>
           </div>
 
           {/* Description */}
-          <p className="text-sm text-gray-600 leading-relaxed">
+          <p className="text-sm text-gray-600 leading-relaxed line-clamp-2">
             {property.description}
           </p>
 
@@ -240,82 +268,82 @@ const ExploreProperty = () => {
 
   return (
     <div className="bg-gray-50 min-h-screen py-2">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      {/* Header Section - Modified for mobile */}
-      <div className="flex items-center justify-between mb-8 md:relative md:top-19">
-        <h1 className="text-2xl font-bold text-gray-900">Explore Property</h1>
-        <button className="flex items-center space-x-2 px-4 py-2 text-gray-600 bg-gray-200 rounded-lg hover:bg-gray-300 transition-colors">
-          <span className="text-sm font-medium">See More</span>
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-        </button>
-      </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header Section */}
+        <div className="flex items-center justify-between mb-8 md:relative md:top-19">
+          <h1 className="text-2xl font-bold text-gray-900">Explore Property</h1>
+          <button className="flex items-center space-x-2 px-4 py-2 text-gray-600 bg-gray-200 rounded-lg hover:bg-gray-300 transition-colors">
+            <span className="text-sm font-medium">See More</span>
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
 
-    {/* Search Filters */}
-<div className="bg-white rounded-lg md:rounded-full p-2 shadow-sm mb-8 w-full md:max-w-2xl mx-auto">
-  <div className="flex flex-col md:flex-row md:items-center space-y-2 md:space-y-0 md:space-x-4">
-    {/* Location Filter */}
-    <div className="flex items-center space-x-2 px-4 py-2 w-full md:flex-1 bg-gray-50 md:bg-transparent rounded-lg md:rounded-none">
-      <MapPin className="w-4 h-4 text-gray-400" />
-      <input
-        type="text"
-        placeholder="Enter Location"
-        value={searchFilters.location}
-        onChange={(e) => setSearchFilters(prev => ({...prev, location: e.target.value}))}
-        className="text-sm text-gray-600 bg-transparent outline-none w-full"
-      />
-    </div>
+        {/* Search Filters */}
+        <div className="bg-white rounded-lg md:rounded-full p-2 shadow-sm mb-8 w-full md:max-w-2xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-center space-y-2 md:space-y-0 md:space-x-4">
+            {/* Location Filter */}
+            <div className="flex items-center space-x-2 px-4 py-2 w-full md:flex-1 bg-gray-50 md:bg-transparent rounded-lg md:rounded-none">
+              <MapPin className="w-4 h-4 text-gray-400" />
+              <input
+                type="text"
+                placeholder="Enter Location"
+                value={searchFilters.location}
+                onChange={(e) => setSearchFilters(prev => ({...prev, location: e.target.value}))}
+                className="text-sm text-gray-600 bg-transparent outline-none w-full"
+              />
+            </div>
 
-    <div className="md:w-px md:h-6 md:bg-gray-200"></div>
+            <div className="md:w-px md:h-6 md:bg-gray-200"></div>
 
-    {/* Property Type Filter */}
-    <div className="flex items-center space-x-2 px-4 py-2 w-full md:flex-1 bg-gray-50 md:bg-transparent rounded-lg md:rounded-none">
-      <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-      </svg>
-      <input
-        type="text"
-        placeholder="Enter Property type"
-        value={searchFilters.propertyType}
-        onChange={(e) => setSearchFilters(prev => ({...prev, propertyType: e.target.value}))}
-        className="text-sm text-gray-600 bg-transparent outline-none w-full"
-      />
-      <ChevronDown className="w-4 h-4 text-gray-400" />
-    </div>
+            {/* Property Type Filter */}
+            <div className="flex items-center space-x-2 px-4 py-2 w-full md:flex-1 bg-gray-50 md:bg-transparent rounded-lg md:rounded-none">
+              <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+              </svg>
+              <input
+                type="text"
+                placeholder="Enter Property type"
+                value={searchFilters.propertyType}
+                onChange={(e) => setSearchFilters(prev => ({...prev, propertyType: e.target.value}))}
+                className="text-sm text-gray-600 bg-transparent outline-none w-full"
+              />
+              <ChevronDown className="w-4 h-4 text-gray-400" />
+            </div>
 
-    <div className="md:w-px md:h-6 md:bg-gray-200"></div>
+            <div className="md:w-px md:h-6 md:bg-gray-200"></div>
 
-    {/* Price Range Filter */}
-    <div className="flex items-center space-x-2 px-4 py-2 w-full md:flex-1 bg-gray-50 md:bg-transparent rounded-lg md:rounded-none">
-      <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
-      </svg>
-      <input
-        type="text"
-        placeholder="Price Range"
-        value={searchFilters.priceRange}
-        onChange={(e) => setSearchFilters(prev => ({...prev, priceRange: e.target.value}))}
-        className="text-sm text-gray-600 bg-transparent outline-none w-full"
-      />
-    </div>
+            {/* Price Range Filter */}
+            <div className="flex items-center space-x-2 px-4 py-2 w-full md:flex-1 bg-gray-50 md:bg-transparent rounded-lg md:rounded-none">
+              <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+              </svg>
+              <input
+                type="text"
+                placeholder="Price Range"
+                value={searchFilters.priceRange}
+                onChange={(e) => setSearchFilters(prev => ({...prev, priceRange: e.target.value}))}
+                className="text-sm text-gray-600 bg-transparent outline-none w-full"
+              />
+            </div>
 
-    {/* Search Button - Full width on mobile, normal on desktop */}
-    <button className="w-full md:w-auto bg-green-600 hover:bg-green-700 text-white p-2 rounded-lg md:rounded-full transition-colors flex items-center justify-center md:relative md:right-1">
-      <Search className="w-4 h-4" />
-      <span className="ml-2 md:hidden">Search</span>
-    </button>
-  </div>
-</div>
+            {/* Search Button */}
+            <button className="w-full md:w-auto bg-green-600 hover:bg-green-700 text-white p-2 rounded-lg md:rounded-full transition-colors flex items-center justify-center md:relative md:right-1">
+              <Search className="w-4 h-4" />
+              <span className="ml-2 md:hidden">Search</span>
+            </button>
+          </div>
+        </div>
 
         {/* Category Tabs */}
         <div className="mb-8">
-          <div className="flex space-x-8 border-b border-gray-200">
+          <div className="flex space-x-8 border-b border-gray-200 overflow-x-auto pb-2">
             {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`pb-4 text-sm font-medium transition-colors relative ${
+                className={`whitespace-nowrap pb-4 text-sm font-medium transition-colors relative ${
                   activeCategory === category
                     ? 'text-gray-900 border-b-2 border-gray-900'
                     : 'text-gray-500 hover:text-gray-700'
@@ -329,9 +357,16 @@ const ExploreProperty = () => {
 
         {/* Property Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {propertyData.map((property) => (
-            <PropertyCard key={property.id} property={property} />
-          ))}
+          {filteredProperties.length > 0 ? (
+            filteredProperties.map((property) => (
+              <PropertyCard key={property.id} property={property} />
+            ))
+          ) : (
+            <div className="col-span-full text-center py-12">
+              <h3 className="text-lg font-medium text-gray-900">No properties found</h3>
+              <p className="mt-2 text-gray-500">Try adjusting your filters or select a different category</p>
+            </div>
+          )}
         </div>
       </div>
     </div>
