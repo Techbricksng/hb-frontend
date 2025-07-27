@@ -38,7 +38,8 @@ const ContactSection = () => {
                 </div>
 
                 {/* Contact Form */}
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6 border border-white p-6 rounded-lg">
+
                   {/* Full Name Input */}
                   <div>
                     <label htmlFor="fullName" className="block text-gray-300 text-sm font-medium mb-2">
