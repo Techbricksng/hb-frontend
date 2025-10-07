@@ -85,7 +85,13 @@ const Header = () => {
           {/* Right side buttons */}
           <div className="flex items-center space-x-4">
             {/* Profile/Login Icon */}
-            <img src={profile} alt="Profile" className="h-8 w-8 rounded-full cursor-pointer" />
+           <NavLink to="/signin">
+          <img
+            src={profile}
+            alt="Profile"
+            className="h-8 w-8 rounded-full cursor-pointer"
+          />
+        </NavLink>
             
             {/* Get Started Button */}
             <button

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import logo1 from '../assets/logo1.png';
 
+
 const HousebankCoverPage = () => {
   const [activeTab, setActiveTab] = useState('For Listed Properties');
 

@@ -77,8 +77,8 @@ const Footer = () => {
             <ul className="space-y-3">
               <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Rent</a></li>
               <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Buy</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Investment</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">List your property</a></li>
+              <li><a href="/investment" className="text-gray-400 hover:text-white transition-colors">Investment</a></li>
+              <li><a href="/Investment-listing" className="text-gray-400 hover:text-white transition-colors">List your property</a></li>
             </ul>
           </div>
 
@@ -86,7 +86,7 @@ const Footer = () => {
           <div className="space-y-6">
             <h4 className="text-lg font-semibold text-white">Services</h4>
             <ul className="space-y-3">
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Property Management</a></li>
+              <li><a href="/property-management" className="text-gray-400 hover:text-white transition-colors">Property Management</a></li>
               <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Property Valuation</a></li>
               <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Property Exchange</a></li>
               <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Investment Portfolio</a></li>
@@ -97,10 +97,10 @@ const Footer = () => {
           <div className="space-y-6">
             <h4 className="text-lg font-semibold text-white">Company</h4>
             <ul className="space-y-3">
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Home</a></li>
+              <li><a href="/" className="text-gray-400 hover:text-white transition-colors">Home</a></li>
               <li><a href="/about-us" className="text-gray-400 hover:text-white transition-colors">About us</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Services</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+              <li><a href="/services" className="text-gray-400 hover:text-white transition-colors">Services</a></li>
+              <li><a href="/blogs" className="text-gray-400 hover:text-white transition-colors">Blog</a></li>
             </ul>
           </div>
 
@@ -108,11 +108,11 @@ const Footer = () => {
           <div className="space-y-6">
             <h4 className="text-lg font-semibold text-white">Support</h4>
             <ul className="space-y-3">
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Help Center</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">HouseBank Cover</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Anti-discrimination</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Report Scam</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Report Neighbourhood concern</a></li>
+              <li><a href="/help-center" className="text-gray-400 hover:text-white transition-colors">Help Center</a></li>
+              <li><a href="listed-properties-cover" className="text-gray-400 hover:text-white transition-colors">HouseBank Cover</a></li>
+              <li><a href="/anti-discrimination" className="text-gray-400 hover:text-white transition-colors">Anti-discrimination</a></li>
+              <li><a href="/report-scam" className="text-gray-400 hover:text-white transition-colors">Report Scam</a></li>
+              <li><a href="/report-concern" className="text-gray-400 hover:text-white transition-colors">Report Neighbourhood concern</a></li>
             </ul>
           </div>
         </div>
@@ -127,7 +127,7 @@ const Footer = () => {
 
             {/* Legal Links */}
             <div className="flex space-x-8">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">Privacy Policy</a>
+              <a href="/privacy-policy" className="text-gray-400 hover:text-white transition-colors text-sm">Privacy Policy</a>
               <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">Country Sitemap</a>
               <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">Cookie Policy</a>
             </div>

@@ -11,8 +11,8 @@ const SearchPage = () => {
   };
 
   return (
-    <div className=" flex items-center justify-center py-4">
-      <div className="w-full max-w-2xl">
+    <div className=" flex items-center justify-center py-4 mt-6">
+      <div className="w-100 max-w-2xl">
         {/* Search Form */}
         <form onSubmit={handleSearch} className="relative">
           <div className="relative flex items-center">

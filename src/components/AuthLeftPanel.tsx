@@ -1,7 +1,7 @@
 import TestimonialCarousel from './TestimonialCarousel.tsx';
 import { ITestimonalData } from '../types/user.ts';
 import React from 'react';
-
+import logo from '../assets/logo1.png';
 interface ILeftPanelProps {
   testimonialData: ITestimonalData[];
 }
@@ -58,24 +58,7 @@ const AuthLeftPanel: React.FC<ILeftPanelProps> = ({ testimonialData }) => {
         
         {/* Logo Section */}
         <div className="mb-8">
-          <div className="w-12 h-12 bg-white bg-opacity-10 rounded-lg flex items-center justify-center backdrop-blur-sm">
-            <svg
-              width="32"
-              height="32"
-              viewBox="0 0 40 40"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M24 12H20V16H24V12Z" fill="white" />
-              <path d="M12 20H8V24H12V20Z" fill="white" />
-              <path d="M24 20H20V24H24V20Z" fill="white" />
-              <path d="M32 20H28V24H32V20Z" fill="white" />
-              <path d="M12 28H8V32H12V28Z" fill="white" />
-              <path d="M24 28H20V32H24V28Z" fill="white" />
-              <path d="M32 28H28V32H32V28Z" fill="white" />
-              <path d="M12 12H8V16H12V12Z" fill="white" />
-            </svg>
-          </div>
+          <img src={logo} alt="HouseBank Logo" className="h-9 w-10" />
         </div>
 
         {/* Main Content */}

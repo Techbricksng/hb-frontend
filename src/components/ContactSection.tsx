@@ -23,9 +23,10 @@ const ContactSection = () => {
   };
 
   return (
-    <div className="bg-gray-800 py-16">
+    <div className="py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-gray-700 rounded-3xl overflow-hidden">
+      <div className="rounded-3xl overflow-hidden" style={{ backgroundColor: '#000000CC' }}>
+
           <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[600px]">
             {/* Left Content - Contact Form */}
             <div className="p-8 lg:p-12 flex flex-col justify-center">
