@@ -297,7 +297,7 @@ const CustomMyPropertyPage = () => {
                 </div>
                 <div className="min-w-0">
                     <a 
-                    href={`/property-detail/${property.id}`} 
+                    href={`/customer/property-detail/`} 
                     className="text-sm font-medium text-blue-600 hover:underline truncate"
                     >
                     {property.name}

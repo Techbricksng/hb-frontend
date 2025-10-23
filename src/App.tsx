@@ -68,6 +68,17 @@ import ApprovedPropertiesPage from './pages/agent/ApprovedProperties.tsx';
 import PendingPropertiesPage from './pages/agent/PendingProperties.tsx';
 import DocumentCOmpliancePage from './pages/agent/DocumentCompliance.tsx';
 import AgentPropertyManagementPage from './pages/agent/PropertyManagementPage.tsx';
+import AgentPropertiesDetailsPage from './pages/agent/AgentPropertyDetails.tsx';
+import AgentRentPropertiesDetails from './pages/agent/RentPropertyDetails.tsx';
+import AgentAddPropertyPage from './pages/agent/AddPropertyPage.tsx';
+import AgentRejectedPropertyPage from './pages/agent/RejectedPropertyDetails.tsx';
+import AgentRevenueDashboardPage from './pages/agent/AgentRevenue.tsx';
+import AgentTransactions from './pages/agent/AgentTransactions.tsx';
+import AgentAllPropertiesDetails from './pages/agent/PropertyDetails.tsx';
+import AgentActiveCustomers from './pages/agent/ActiveCustomers.tsx';
+import AgentRentDetailsChart from './pages/agent/RentProperty.tsx';
+import AgentReportTenant from './pages/agent/ReportTenantPage.tsx';
+import AgentDocumentCompliance from './pages/agent/DocumentsCompliance.tsx';
 
 // Agent Pages
 const App = () => {
@@ -148,8 +159,19 @@ const App = () => {
         <Route path='/agent/properties' element={<AgentListedPropertiesPage />} />
         <Route path='/agent/approved-properties' element={<ApprovedPropertiesPage />} />
         <Route path='/agent/pending-properties' element={<PendingPropertiesPage />} />
-         <Route path='/agent/documents' element={<DocumentCOmpliancePage />} />
+         <Route path='/agent/list-property' element={<DocumentCOmpliancePage />} />
          <Route path='/agent/property-management' element={<AgentPropertyManagementPage />} />
+         <Route path='/agent/available-property-details' element={<AgentPropertiesDetailsPage />} />
+         <Route path='/agent/rent-property-details' element={<AgentRentPropertiesDetails />} />
+         <Route path='/agent/add-property' element={<AgentAddPropertyPage />} />
+         <Route path='/agent/rejected-property' element={<AgentRejectedPropertyPage />} />
+         <Route path='/agent/revenue' element={<AgentRevenueDashboardPage />} />
+         <Route path='/agent/transactions' element={<AgentTransactions />} />
+         <Route path='/agent/property-details' element={<AgentAllPropertiesDetails /> } />
+         <Route path='/agent/customers' element={<AgentActiveCustomers /> } />
+         <Route path='agent/rent-details' element={<AgentRentDetailsChart /> } />
+           <Route path='agent/report-tenant' element={<AgentReportTenant /> } />
+           <Route path='agent/documents' element={<AgentDocumentCompliance /> } />
 
         </Routes>
       </ErrorBoundary>
