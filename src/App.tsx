@@ -79,6 +79,33 @@ import AgentActiveCustomers from './pages/agent/ActiveCustomers.tsx';
 import AgentRentDetailsChart from './pages/agent/RentProperty.tsx';
 import AgentReportTenant from './pages/agent/ReportTenantPage.tsx';
 import AgentDocumentCompliance from './pages/agent/DocumentsCompliance.tsx';
+import AgentSoldDocument from './pages/agent/AgentSoldDocument.tsx';
+import AgentMessages from './pages/agent/Messages.tsx';
+import AgentReviews from './pages/agent/AgentReviews.tsx';
+import AgentCustomerSupportPage from './pages/agent/CustomerSupport.tsx';
+import CompanyDashboardPage from './pages/company/Dashboard.tsx';
+import CompanyPropertyPage from './pages/company/CompanyProperty.tsx';
+import CompanyRealtorPage from './pages/company/CompanyRealtor.tsx';
+import CompanyCustomersPage from './pages/company/CompanyCustomer.tsx';
+import CompanyPropertyDetailsPage from './pages/company/CompanyPropertyDetails.tsx';
+import CompanyPropertyRequest from './pages/company/CompanyPropertyRequest.tsx';
+import CompanyAddProperty from './pages/company/CompanyAddProperty.tsx';
+import ManageRealtorMain from './pages/company/ManageRealtor.tsx';
+import ManageRealtorRankings from './pages/company/CompanyRealtorRankings.tsx';
+import TransferAgent from './pages/company/CompanyTransferAgent.tsx';
+import CompanyNotification from './pages/company/Notification.tsx';
+import CompanyMessage from './pages/company/Messages.tsx';
+import CompanyRevenuePage from './pages/company/CompanyRevenue.tsx';
+import CompanyTransactionsPage from './pages/company/TransactionsPage.tsx';
+import CompanySupportPage from './pages/company/Support.tsx';
+import AdminOverviewPage from './pages/admin/Dashboard.tsx';
+import AdminManageCOmpaniesPage from './pages/admin/Companies.tsx';
+import AdminAgencyPage from './pages/admin/AdminAgents.tsx';
+import AdminCustomersPage from './pages/admin/Customers.tsx';
+import AdminPropertiesPage from './pages/admin/Properties.tsx';
+import AdminReportAnalysisPage from './pages/admin/ReportAnalytics.tsx';
+import AdminMessagingPage from './pages/admin/Messages.tsx';
+import AdminReviewsPage from './pages/admin/Reviews.tsx';
 
 // Agent Pages
 const App = () => {
@@ -170,8 +197,41 @@ const App = () => {
          <Route path='/agent/property-details' element={<AgentAllPropertiesDetails /> } />
          <Route path='/agent/customers' element={<AgentActiveCustomers /> } />
          <Route path='agent/rent-details' element={<AgentRentDetailsChart /> } />
-           <Route path='agent/report-tenant' element={<AgentReportTenant /> } />
-           <Route path='agent/documents' element={<AgentDocumentCompliance /> } />
+          <Route path='agent/report-tenant' element={<AgentReportTenant /> } />
+          <Route path='agent/documents' element={<AgentDocumentCompliance /> } />
+          <Route path='agent/sold-document' element={<AgentSoldDocument /> } />
+          <Route path='agent/messages' element={<AgentMessages /> } />
+           <Route path='agent/reviews' element={<AgentReviews /> } />
+           <Route path='agent/support' element={<AgentCustomerSupportPage /> } />
+
+             {/* COmpany Pages */}
+             <Route path='company/overview' element={<CompanyDashboardPage /> } />
+             <Route path='company/property' element={<CompanyPropertyPage /> } />
+             <Route path='company/realtors' element={<CompanyRealtorPage /> } />
+             <Route path='company/customers' element={<CompanyCustomersPage /> } />
+             <Route path='company/property-details' element={<CompanyPropertyDetailsPage /> } />
+             <Route path='company/property-request' element={<CompanyPropertyRequest /> } />
+             <Route path='company/add-property' element={<CompanyAddProperty /> } />
+             <Route path='company/manage-realtor' element={<ManageRealtorMain /> } />
+             <Route path='company/realtor-rankings' element={<ManageRealtorRankings /> } />
+             <Route path='company/transfer-agent' element={<TransferAgent /> } />
+             <Route path='company/notifications' element={<CompanyNotification />} />
+             <Route path='company/messages' element={<CompanyMessage />} />
+             <Route path='company/revenue' element={<CompanyRevenuePage />} />
+             <Route path='company/transactions' element={<CompanyTransactionsPage />} />
+             <Route path='company/support' element={<CompanySupportPage />} />
+
+              {/* Admin Pages */}
+
+              <Route path='admin/overview' element={<AdminOverviewPage /> } />
+              <Route path='admin/companies' element={<AdminManageCOmpaniesPage />} />
+              <Route path='admin/realtors' element={<AdminAgencyPage />} />
+              <Route path='admin/customers' element={<AdminCustomersPage />} />
+              <Route path='admin/properties' element={<AdminPropertiesPage />} />
+              <Route path='admin/reports' element={<AdminReportAnalysisPage />} />
+              <Route path='admin/messages' element={<AdminMessagingPage />} />
+              <Route path='admin/reviews' element={<AdminReviewsPage />} />
+          
 
         </Routes>
       </ErrorBoundary>

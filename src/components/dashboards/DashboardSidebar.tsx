@@ -10,7 +10,11 @@ import {
   FileText,
   DollarSign,
   Star,
-  Wrench
+  Wrench,Bell,
+UserCircle,
+Receipt,
+LifeBuoy
+
 } from 'lucide-react';
 import { DashboardSidebarProps, MenuItem } from '../../types/menu'; 
 import logo from '../../assets/logo.png'; 
@@ -59,7 +63,7 @@ const DashboardSidebar = ({ userRole = 'customer', onMenuClick }: DashboardSideb
       { name: 'Customer Reviews', icon: () => <img src={document} alt="Reviews" className="w-5 h-5" />, path: '/agent/reviews' },
     ],
     admin: [
-      { name: 'Overview', icon: lucideIcon(LayoutDashboard), path: '/admin/dashboard' },
+      { name: 'Overview', icon: lucideIcon(LayoutDashboard), path: '/admin/overview' },
       { name: 'Manage Property', icon: lucideIcon(Home), path: '/admin/properties' },
       { name: 'Manage Companies', icon: lucideIcon(Building), path: '/admin/companies' },
       { name: 'Manage Realtor', icon: lucideIcon(Users), path: '/admin/realtors' },
@@ -68,15 +72,18 @@ const DashboardSidebar = ({ userRole = 'customer', onMenuClick }: DashboardSideb
       { name: 'Messages', icon: lucideIcon(MessageSquare), path: '/admin/messages' },
       { name: 'Reviews', icon: lucideIcon(Star), path: '/admin/reviews' },
     ],
-    company: [
-      { name: 'Overview', icon: lucideIcon(LayoutDashboard), path: '/company-dashboard' },
-      { name: 'Manage Property', icon: lucideIcon(Home), path: '/company/properties' },
-      { name: 'Document/Compliance', icon: lucideIcon(FileText), path: '/company/documents' },
-      { name: 'Revenue', icon: lucideIcon(DollarSign), path: '/company/revenue' },
-      { name: 'Messages', icon: lucideIcon(MessageSquare), path: '/company/messages' },
-      { name: 'Support & Resources', icon: lucideIcon(Wrench), path: '/company/support' },
-      { name: 'Customer Reviews', icon: lucideIcon(Star), path: '/company/reviews' },
-    ]
+   company: [
+  { name: 'Overview', icon: lucideIcon(LayoutDashboard), path: '/company/overview' },
+  { name: 'Notifications', icon: lucideIcon(Bell), path: '/company/notifications' },
+  { name: 'Property', icon: lucideIcon(Home), path: '/company/property' },
+  { name: 'Manage Realtor', icon: lucideIcon(Users), path: '/company/realtors' },
+  { name: 'Manage Customers', icon: lucideIcon(UserCircle), path: '/company/customers' },
+  { name: 'Messages', icon: lucideIcon(MessageSquare), path: '/company/messages' },
+  { name: 'Revenue', icon: lucideIcon(DollarSign), path: '/company/revenue' },
+  { name: 'Transactions', icon: lucideIcon(Receipt), path: '/company/transactions' },
+  { name: 'Help & Support', icon: lucideIcon(LifeBuoy), path: '/company/support' },
+]
+
   };
 
   const currentMenu = roleMenus[userRole] || roleMenus.customer;
